@@ -1,0 +1,29 @@
+domain: writing
+aiqVersion: "0.1"
+title: Writing & Communication Judgment Rubric
+appliesTo: marketers, PMs, and execs reviewing AI-assisted writing (posts, emails, memos, articles)
+
+focus:
+  - key: central-claim
+    prompt: Can the author state the single main point in one sentence? Is it argued, or just asserted in fluent language?
+  - key: audience-fit
+    prompt: Who is this for, what do they already believe, and does it move them?
+  - key: evidence-vs-assertion
+    prompt: Which claims are backed and which are vibes or overclaiming?
+  - key: style-over-substance
+    prompt: Where is the prose persuasive but the reasoning thin? (AI is excellent at sounding right.)
+  - key: factual-exposure
+    prompt: Any stats, names, quotes, or facts not personally verified?
+  - key: tone-and-risk
+    prompt: Anything that could embarrass, mislead, or invite a fair attack?
+
+probes:
+  - What is the single main point, in one sentence?
+  - Who is the audience and what do you need them to do or believe afterward?
+  - Which claims here are actually backed by evidence, and which are assertion?
+  - Which facts, stats, or quotes have you personally verified?
+  - Which sentence is most likely to be challenged, and could you defend it now?
+  - What objection should you expect from a hostile reader?
+  - What are you least confident about?
+
+specialFlag: The single sentence most likely to get challenged, and whether the author could defend it right now.

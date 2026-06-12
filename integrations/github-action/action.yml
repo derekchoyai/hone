@@ -1,0 +1,48 @@
+name: "Hone judgment-check"
+description: "Gate AI-assisted changes on whether the author understands them (the open AI-Q standard)."
+author: "Derek Choy"
+branding:
+  icon: "shield"
+  color: "purple"
+
+inputs:
+  domain:
+    description: "coding | writing | research | product | strategy | auto"
+    required: false
+    default: "auto"
+  paths:
+    description: "Glob of files to review (e.g. 'src/**/*.ts'). Defaults to the PR diff."
+    required: false
+    default: ""
+  model:
+    description: "openai | anthropic"
+    required: false
+    default: "openai"
+  min-score:
+    description: "Fail the check if the AI-Q is below this (0-100)."
+    required: false
+    default: "55"
+  mode:
+    description: "after | during"
+    required: false
+    default: "after"
+
+outputs:
+  score:
+    description: "The composite AI-Q (0-100)."
+  band:
+    description: "Owns it | Mostly owns it | Riding the AI | Black box."
+
+# v0.1 DESIGN SCAFFOLD — see README.md. The interactive interview is delivered via PR
+# comments (CI is non-interactive), which is a v0.2 implementation task. The working
+# reference today is the CLI (../cli). This composite skeleton documents the contract.
+runs:
+  using: "composite"
+  steps:
+    - name: Hone judgment-check (scaffold)
+      shell: bash
+      run: |
+        echo "Hone judgment-check is a v0.1 design scaffold."
+        echo "Inputs: domain=${{ inputs.domain }} paths='${{ inputs.paths }}' model=${{ inputs.model }} min-score=${{ inputs.min-score }} mode=${{ inputs.mode }}"
+        echo "Working reference implementation: integrations/cli (judgment-review.mjs)."
+        echo "See integrations/github-action/README.md for the intended PR-bot flow."

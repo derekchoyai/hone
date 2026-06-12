@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/derekchoyai/hone/spec/score.schema.json",
+  "title": "AI-Q Score",
+  "description": "The output of a Hone judgment review: the human's AI-Q over a piece of AI-assisted work. 'dimensions' are the six Discernment (D1) dimensions; 'delegation' (D2) is present only when the evidence gate was met; Design (D3) is never a per-review number (see aiq.md). 'composite' is the renormalized AI-Q — equal to the discernment sub-score when no other D is assessed (v0.1 compatible).",
+  "type": "object",
+  "required": ["aiqVersion", "dimensions", "composite", "band"],
+  "properties": {
+    "aiqVersion": { "type": "string", "enum": ["0.1", "0.2"] },
+    "domain": {
+      "type": "string",
+      "enum": ["coding", "writing", "research", "product", "strategy", "creative", "other"]
+    },
+    "riskLevel": { "type": "string", "enum": ["low", "medium", "high"] },
+    "mode": { "type": "string", "enum": ["after", "during"] },
+    "dimensions": {
+      "type": "object",
+      "description": "Each core dimension scored 1-5.",
+      "required": [
+        "understanding",
+        "verification",
+        "assumptionAwareness",
+        "riskRecognition",
+        "confidenceCalibration",
+        "accountability"
+      ],
+      "properties": {
+        "understanding": { "$ref": "#/$defs/dimensionScore" },
+        "verification": { "$ref": "#/$defs/dimensionScore" },
+        "assumptionAwareness": { "$ref": "#/$defs/dimensionScore" },
+        "riskRecognition": { "$ref": "#/$defs/dimensionScore" },
+        "confidenceCalibration": { "$ref": "#/$defs/dimensionScore" },
+        "accountability": { "$ref": "#/$defs/dimensionScore" }
+      }
+    },
+    "extended": {
+      "type": "object",
+      "description": "Optional extended dimensions; do not affect the core composite.",
+      "properties": {
+        "counterargument": { "$ref": "#/$defs/dimensionScore" },
+        "curiosity": { "$ref": "#/$defs/dimensionScore" }
+      }
+    },
+    "discernment": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "D1 sub-score: round(sum(six dimension scores) / 30 * 100)."
+    },
+    "delegation": {
+      "type": "object",
+      "description": "D2 — present ONLY when the interview surfaced the brief / iteration history (the evidence gate in aiq.md). Never defaulted, never zero-filled.",
+      "required": ["briefQuality", "taskSelection", "iterationControl", "score"],
+      "properties": {
+        "briefQuality": { "$ref": "#/$defs/dimensionScore" },
+        "taskSelection": { "$ref": "#/$defs/dimensionScore" },
+        "iterationControl": { "$ref": "#/$defs/dimensionScore" },
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "round(sum(three facet scores) / 15 * 100)."
+        }
+      }
+    },
+    "composite": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "The AI-Q composite: renormalized weights (discernment 0.6, delegation 0.3, design 0.1) over assessed Ds — see aiq.md. Equals the discernment sub-score when only D1 was assessed."
+    },
+    "band": {
+      "type": "string",
+      "enum": ["Owns it", "Mostly owns it", "Riding the AI", "Black box"]
+    },
+    "summary": { "type": "string" },
+    "owns": { "type": "array", "items": { "type": "string" } },
+    "gaps": { "type": "array", "items": { "type": "string" } },
+    "verifyBeforeShip": { "type": "array", "items": { "type": "string" } },
+    "howToDefend": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["objection", "response"],
+        "properties": {
+          "objection": { "type": "string" },
+          "response": { "type": "string" }
+        }
+      }
+    },
+    "practiceNext": { "type": "string" }
+  },
+  "$defs": {
+    "dimensionScore": {
+      "type": "object",
+      "required": ["score"],
+      "properties": {
+        "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "justification": { "type": "string" }
+      }
+    }
+  }
+}

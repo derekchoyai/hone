@@ -1,0 +1,32 @@
+domain: creative
+aiqVersion: "0.1"
+title: Creative & Generative-Brief Judgment Rubric
+appliesTo: people directing AI to create something — design briefs, prompts for image/video/slide/copy generation, marketing creative, artistic work
+
+# This rubric judges the HUMAN's creative direction and their ability to evaluate the
+# output — NOT whether they recite design theory correctly. A prompt/brief is not an
+# argument with "claims" and "evidence"; treat its parts as intent, criteria, and risk.
+
+focus:
+  - key: intent-clarity
+    prompt: Do they actually know what they want, or is the brief vague and hoping the AI decides?
+  - key: success-criteria
+    prompt: How will they tell if the generated output is good? Is "good" defined, or just "I'll know it when I see it"?
+  - key: delegation-boundary
+    prompt: What is being delegated to the AI vs deliberately decided by the human? What creative choices were abdicated by omission?
+  - key: audience-and-brand-fit
+    prompt: Who is this for, and does the direction fit their context/brand/voice?
+  - key: creative-risk
+    prompt: How could the output disappoint — generic, derivative, off-brand, inaccessible, or wrong message?
+  - key: evaluation-ability
+    prompt: Can the human actually judge the result, or will they accept whatever looks polished?
+
+probes:
+  - In one sentence, what do you want this to achieve, and for whom?
+  - How will you know the generated result is good — what specifically are you looking for?
+  - What did you leave for the AI to decide, and are you OK with that?
+  - What would make you reject the first output it gives you?
+  - Where could this come back generic or off-brand, and how would you catch it?
+  - What's the one creative choice here you're least sure about?
+
+specialFlag: Whether the human can actually evaluate the output — the biggest risk in generative work is accepting polished-but-wrong results.

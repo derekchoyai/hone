@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/derekchoyai/hone/spec/rubric.schema.json",
+  "title": "AI-Q Domain Rubric",
+  "description": "A per-domain review rubric. Authored in YAML, validated against this schema.",
+  "type": "object",
+  "required": ["domain", "aiqVersion", "focus", "probes"],
+  "properties": {
+    "domain": { "type": "string" },
+    "aiqVersion": { "type": "string", "const": "0.1" },
+    "title": { "type": "string" },
+    "appliesTo": {
+      "type": "string",
+      "description": "Who this rubric is for (e.g. 'engineers reviewing AI-generated code')."
+    },
+    "focus": {
+      "type": "array",
+      "description": "The domain-specific things a reviewer probes.",
+      "items": {
+        "type": "object",
+        "required": ["key", "prompt"],
+        "properties": {
+          "key": { "type": "string" },
+          "prompt": { "type": "string", "description": "What to examine in the work." }
+        }
+      }
+    },
+    "probes": {
+      "type": "array",
+      "description": "Seed interview questions for this domain (the engine adapts/selects from these).",
+      "items": { "type": "string" }
+    },
+    "specialFlag": {
+      "type": "string",
+      "description": "The single most important thing to surface for this domain (e.g. the load-bearing assumption, or any line the author can't explain)."
+    }
+  }
+}

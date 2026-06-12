@@ -1,0 +1,31 @@
+domain: strategy
+aiqVersion: "0.1"
+title: Business Strategy & Decision Judgment Rubric
+appliesTo: consultants and execs reviewing AI-assisted recommendations, strategies, or business cases
+
+focus:
+  - key: load-bearing-assumption
+    prompt: What must be true for this to be right? Which assumption, if wrong, breaks the whole thing? How confident is the author in it?
+  - key: tradeoffs
+    prompt: What is being given up? What is the cost of being wrong versus the upside?
+  - key: second-order-effects
+    prompt: What happens after the obvious first effect? Who reacts, and how?
+  - key: alternatives
+    prompt: What other options exist, and why is this better — including do-nothing?
+  - key: reversibility
+    prompt: Is this a one-way or two-way door, and is it being treated correctly?
+  - key: failure-modes
+    prompt: What is the most likely way this goes wrong, and what is the early signal?
+  - key: incentives-and-stakeholders
+    prompt: Who wins, who loses, who can block it?
+
+probes:
+  - What is the single assumption that, if wrong, sinks this recommendation — and have you checked it?
+  - What are you giving up, and what's the cost if you're wrong?
+  - What happens after the first-order effect? Who reacts and how?
+  - What's the strongest alternative, including doing nothing, and why this instead?
+  - Is this reversible? Are you treating it like the door it actually is?
+  - What's the most likely failure mode, and what early signal would warn you?
+  - What are you least confident about?
+
+specialFlag: The load-bearing assumption — the one that, if wrong, sinks the recommendation — and whether it has actually been checked.

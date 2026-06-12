@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use the open AI-Q standard or Hone in your work, please cite it as below."
+title: "Hone: the AI-Q — the open standard"
+abstract: "An open framework and toolkit for measuring a human's AI-Q — their judgment over AI-assisted work across three components: Discernment (six auditable dimensions: understanding, verification, assumption awareness, risk recognition, confidence calibration, accountability), Delegation (brief quality, task selection, iteration control), and Design (workflow architecture, read longitudinally)."
+type: software
+authors:
+  - family-names: Choy
+    given-names: Derek
+license: Apache-2.0
+repository-code: "https://github.com/derekchoyai/hone"
+version: 0.2.0
+date-released: 2026-06-11
+keywords:
+  - human judgment
+  - AI evaluation
+  - AI-Q
+  - judgment score
+  - human-in-the-loop
+  - AI governance
+  - critical thinking

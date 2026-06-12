@@ -1,0 +1,49 @@
+{
+  "name": "@hone/sdk",
+  "version": "0.2.0",
+  "description": "the open AI-Q standard SDK \u2014 measure a human AI-Q over AI-assisted work: Discernment, Delegation, Design (bring-your-own-model).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "hone",
+    "judgment",
+    "ai-evaluation",
+    "ai-judgment",
+    "llm",
+    "human-in-the-loop",
+    "ai-governance",
+    "hone",
+    "judgment-score",
+    "open-judgment-framework"
+  ],
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derekchoyai/hone.git",
+    "directory": "sdk/typescript"
+  },
+  "homepage": "https://github.com/derekchoyai/hone#readme",
+  "bugs": {
+    "url": "https://github.com/derekchoyai/hone/issues"
+  },
+  "author": "Derek Choy"
+}

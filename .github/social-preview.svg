@@ -1,0 +1,72 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ember" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C75A3B"/>
+      <stop offset="100%" stop-color="#E3A24A"/>
+    </linearGradient>
+    <radialGradient id="warmth" cx="20%" cy="0%" r="120%">
+      <stop offset="0%" stop-color="#FDFAF3"/>
+      <stop offset="100%" stop-color="#F7F0E3"/>
+    </radialGradient>
+  </defs>
+
+  <!-- paper -->
+  <rect width="1280" height="640" fill="url(#warmth)"/>
+  <!-- hairline frame, like the app's cards -->
+  <rect x="28" y="28" width="1224" height="584" rx="24" fill="none" stroke="#2A241D" stroke-opacity="0.14" stroke-width="1.5"/>
+
+  <!-- Sol: the sun mark -->
+  <g transform="translate(96, 104)">
+    <circle cx="0" cy="0" r="17" fill="url(#ember)"/>
+    <g stroke="url(#ember)" stroke-width="3.5" stroke-linecap="round">
+      <line x1="0" y1="-28" x2="0" y2="-36"/>
+      <line x1="0" y1="28" x2="0" y2="36"/>
+      <line x1="-28" y1="0" x2="-36" y2="0"/>
+      <line x1="28" y1="0" x2="36" y2="0"/>
+      <line x1="-20" y1="-20" x2="-25.5" y2="-25.5"/>
+      <line x1="20" y1="20" x2="25.5" y2="25.5"/>
+      <line x1="-20" y1="20" x2="-25.5" y2="25.5"/>
+      <line x1="20" y1="-20" x2="25.5" y2="-25.5"/>
+    </g>
+  </g>
+  <text x="156" y="122" font-family="Baskerville, Georgia, serif" font-size="52" font-weight="600" fill="#2A241D">Hone</text>
+  <text x="1184" y="116" text-anchor="end" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="22" letter-spacing="3" fill="#2A241D" fill-opacity="0.55">KEEP YOUR EDGE</text>
+
+  <!-- the line -->
+  <text x="96" y="312" font-family="Baskerville, Georgia, serif" font-size="64" fill="#2A241D">Every AI eval scores the model.</text>
+  <text x="96" y="420" font-family="Baskerville, Georgia, serif" font-size="88" font-weight="600" fill="url(#ember)">Hone scores you.</text>
+  <!-- hand-drawn underline under "you" -->
+  <path d="M 580 448 C 640 460, 740 438, 790 450" fill="none" stroke="url(#ember)" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- substance: the six dimensions as quiet pills -->
+  <g font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="19" fill="#2A241D" fill-opacity="0.75">
+    <g>
+      <rect x="96"  y="492" width="160" height="40" rx="20" fill="none" stroke="#2A241D" stroke-opacity="0.22"/>
+      <text x="176" y="518" text-anchor="middle">Understanding</text>
+    </g>
+    <g>
+      <rect x="268" y="492" width="142" height="40" rx="20" fill="none" stroke="#2A241D" stroke-opacity="0.22"/>
+      <text x="339" y="518" text-anchor="middle">Verification</text>
+    </g>
+    <g>
+      <rect x="422" y="492" width="148" height="40" rx="20" fill="none" stroke="#2A241D" stroke-opacity="0.22"/>
+      <text x="496" y="518" text-anchor="middle">Assumptions</text>
+    </g>
+    <g>
+      <rect x="582" y="492" width="84" height="40" rx="20" fill="none" stroke="#2A241D" stroke-opacity="0.22"/>
+      <text x="624" y="518" text-anchor="middle">Risk</text>
+    </g>
+    <g>
+      <rect x="678" y="492" width="138" height="40" rx="20" fill="none" stroke="#2A241D" stroke-opacity="0.22"/>
+      <text x="747" y="518" text-anchor="middle">Calibration</text>
+    </g>
+    <g>
+      <rect x="828" y="492" width="172" height="40" rx="20" fill="none" stroke="#2A241D" stroke-opacity="0.22"/>
+      <text x="914" y="518" text-anchor="middle">Accountability</text>
+    </g>
+  </g>
+
+  <!-- footer -->
+  <text x="96" y="576" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="21" fill="#2A241D" fill-opacity="0.6">Measure your AI-Q — does the human understand the work AI made?</text>
+  <text x="1184" y="576" text-anchor="end" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="21" fill="#C75A3B">github.com/derekchoyai/hone</text>
+</svg>

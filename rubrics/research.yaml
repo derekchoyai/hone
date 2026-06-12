@@ -1,0 +1,29 @@
+domain: research
+aiqVersion: "0.1"
+title: Research & Analysis Judgment Rubric
+appliesTo: analysts and researchers reviewing AI-assisted findings, reports, or analyses
+
+focus:
+  - key: sources
+    prompt: Where did the data and claims come from? Quality, recency, primary vs secondary? Could any be fabricated by the model?
+  - key: sample-and-scope
+    prompt: What population or scope does this cover, and what does it explicitly NOT cover?
+  - key: causality
+    prompt: Where is correlation being treated as causation? What confounders are ignored?
+  - key: numbers-and-base-rates
+    prompt: Do the figures pass a sanity check? Any cherry-picking?
+  - key: alternative-explanations
+    prompt: What other reading of the same data is plausible?
+  - key: generalization
+    prompt: How far do these findings actually transfer?
+
+probes:
+  - What are the sources behind the key claims, and how solid are they?
+  - Which numbers did you sanity-check, and which did you take from the AI?
+  - Where might correlation be masquerading as causation here?
+  - What alternative explanation fits this same data?
+  - What is the scope of these findings — where do they stop being valid?
+  - Which claim here is confident but unsupported?
+  - What are you least confident about?
+
+specialFlag: Any claim that is confident but unsupported — the AI false-confidence trap.

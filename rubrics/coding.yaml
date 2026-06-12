@@ -1,0 +1,29 @@
+domain: coding
+aiqVersion: "0.1"
+title: Code Judgment Rubric
+appliesTo: engineers reviewing AI-generated or AI-assisted code before commit or deploy
+
+focus:
+  - key: line-level-understanding
+    prompt: Can the author explain what each non-trivial block does and WHY it is written this way? Any code trusted blindly?
+  - key: correctness-and-edge-cases
+    prompt: Empty/null inputs, large inputs, concurrency, off-by-one, error paths — what is unhandled?
+  - key: security
+    prompt: Injection, authorization, secrets handling, unsafe deserialization, dependency risk.
+  - key: tests-and-verification
+    prompt: Has this actually been run? What is tested versus assumed to work?
+  - key: maintainability
+    prompt: Will the next engineer (or the author in three months) understand it?
+  - key: why-this-approach
+    prompt: What did the AI choose, and what did it silently rule out?
+
+probes:
+  - In your own words, what does this code do and why is it structured this way?
+  - Which line or dependency here could you NOT explain right now?
+  - What inputs or conditions would break this?
+  - What did you actually run or test, and what are you assuming works?
+  - What's the security exposure if this handles untrusted input?
+  - What approach did you (or the AI) reject, and why is this one better?
+  - What are you least confident about in this change?
+
+specialFlag: Any line or dependency the author cannot explain — that is the part most likely to bite.

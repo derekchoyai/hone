@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/derekchoyai/hone/spec/review.schema.json",
+  "title": "AI-Q Review",
+  "description": "The intermediate artifacts of a judgment review: the work-understanding map and the interview.",
+  "type": "object",
+  "required": ["aiqVersion", "workMap", "questions"],
+  "properties": {
+    "aiqVersion": { "type": "string", "enum": ["0.1", "0.2"] },
+    "domain": {
+      "type": "string",
+      "enum": ["coding", "writing", "research", "product", "strategy", "creative", "other"]
+    },
+    "riskLevel": { "type": "string", "enum": ["low", "medium", "high"] },
+    "workMap": {
+      "type": "object",
+      "description": "Structured decomposition of the work.",
+      "required": ["claims", "assumptions", "risks"],
+      "properties": {
+        "claims": { "type": "array", "items": { "type": "string" } },
+        "recommendations": { "type": "array", "items": { "type": "string" } },
+        "assumptions": { "type": "array", "items": { "type": "string" } },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["claim", "strength"],
+            "properties": {
+              "claim": { "type": "string" },
+              "support": { "type": "string" },
+              "strength": { "type": "string", "enum": ["weak", "moderate", "strong"] }
+            }
+          }
+        },
+        "risks": { "type": "array", "items": { "type": "string" } },
+        "unknowns": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "description": "Interview questions; count matches risk level (3/5/7).",
+      "items": { "type": "string" }
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["question", "answer"],
+        "properties": {
+          "question": { "type": "string" },
+          "answer": { "type": "string" }
+        }
+      }
+    }
+  }
+}

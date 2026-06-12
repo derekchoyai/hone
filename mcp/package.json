@@ -1,0 +1,43 @@
+{
+  "name": "@hone/mcp",
+  "version": "0.3.0",
+  "description": "the open AI-Q standard MCP server \u2014 judgment-review protocol and deterministic scoring for any MCP-capable agent. Local, stores nothing.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "hone-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"require('fs').chmodSync('dist/index.js', 0o755)\"",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@hone/sdk": "file:../sdk/typescript",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derekchoyai/hone.git",
+    "directory": "mcp"
+  },
+  "homepage": "https://github.com/derekchoyai/hone#readme",
+  "bugs": {
+    "url": "https://github.com/derekchoyai/hone/issues"
+  },
+  "author": "Derek Choy",
+  "keywords": [
+    "hone",
+    "judgment-score",
+    "open-judgment-framework"
+  ]
+}

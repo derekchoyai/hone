@@ -1,0 +1,29 @@
+domain: product
+aiqVersion: "0.1"
+title: Product Judgment Rubric
+appliesTo: product managers reviewing AI-assisted specs, PRDs, prioritization, or product decisions
+
+focus:
+  - key: problem-clarity
+    prompt: Is the user problem real and clearly stated, or assumed? What evidence that it matters?
+  - key: user-and-demand
+    prompt: Who is this for, and what signal says they want it? Or is demand presumed?
+  - key: tradeoffs-and-scope
+    prompt: What is being cut, and why? Is scope honest about cost?
+  - key: success-metrics
+    prompt: How will we know it worked? Are the metrics gameable or vanity?
+  - key: alternatives
+    prompt: What other solutions exist, including doing nothing or buying instead of building?
+  - key: second-order-effects
+    prompt: What does this break, complicate, or incentivize downstream?
+
+probes:
+  - What user problem does this solve, and what's the evidence it's real?
+  - Who exactly is this for, and what signal says they'll adopt it?
+  - What are you deliberately NOT building, and why?
+  - How will you know this succeeded — and could that metric be gamed?
+  - What's the strongest alternative (including do-nothing), and why this instead?
+  - What could this break or complicate elsewhere in the product?
+  - What are you least confident about?
+
+specialFlag: Whether the core user problem is evidenced or merely assumed — the most common silent failure in AI-drafted product work.
