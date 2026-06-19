@@ -165,6 +165,8 @@ Did the brief carry what the task needed? Was this the right thing to hand to AI
 
 Are you re-architecting how you work around AI — or just using it where it lands? One artifact can't show a system, so **Design is never scored from a single review.** It's read qualitatively from your profile over time (domain breadth, delegation trend, whether discernment holds as you delegate more); a numeric Design score needs cross-user baselines and stays on the [roadmap](spec/roadmap.md).
 
+> **Agentic work, too.** When the thing you made *is* a system — an agent loop, an automation, a multi-agent setup — the same three Ds re-point to the loop: is the "done" check real or just "looks done" (Discernment), was a loop even the right call vs. a one-shot prompt and is the blast radius bounded (Delegation). Hone measures judgment over how you *run* AI, not just one-shot answers. See [`spec/aiq.md`](spec/aiq.md#ai-q-for-agentic-work-loops-automations-multi-agent).
+
 Bands: **80–100 Owns it · 55–79 Mostly owns it · 30–54 Riding the AI · 0–29 Black box.**
 
 Scoring is deterministic — every sub-score and the composite are computed by the same code everywhere ([`@hone/sdk`](sdk/typescript/)), so a 72 in CI means the same thing as a 72 in your agent. A six-dimension review's AI-Q equals its Discernment sub-score, so every v0.1 Judgment Score is already a valid AI-Q. The full normative definition is [`spec/aiq.md`](spec/aiq.md); two extended Discernment dimensions — *Counterargument* and *Curiosity* — are optional and defined in [`spec/judgment-dimensions.md`](spec/judgment-dimensions.md).

@@ -137,6 +137,40 @@ The review mode determines which D leads — it never changes the definitions:
   implementation MAY offer a light delegation read of the brief **as first given** (their
   unaided delegation), recorded as delegation-only with the user's consent.
 
+## AI-Q for agentic work (loops, automations, multi-agent)
+
+When the work under review is not a finished output but a **system the human built to run
+AI** — an agent loop, an automation, a multi-agent setup, a scheduled job — judgment moves
+*up*, from the output to the loop that produces it. The three Ds do not change and **no new
+dimension is needed**; they re-point:
+
+- **Discernment, relocated into the verification.** In a loop the human rarely sees every
+  intermediate output — they design the *"done" check* the loop runs against itself. So
+  **Verification** is assessed as *verification design*: would the check actually catch
+  confident-but-wrong work, or does it rubber-stamp "looks done"? And **Risk recognition**
+  is assessed as *blast-radius control*: explicit stop conditions (max iterations, a
+  budget), guardrails, and a human gate on irreversible / one-way-door steps. (A loop will
+  ship confident, polished, *wrong* work and call it finished if the check is weak — the
+  exact failure AI-Q exists to catch, one level up.)
+- **Delegation, expanded to mode selection.** Before any brief, the human chooses the
+  *vehicle*: a one-shot prompt · an agent loop · multiple agents · doing it themselves —
+  fit to the stakes, repetition, self-checkability, time, and cost. **taskSelection** covers
+  this: *over*-automation (a multi-agent system for a one-shot task) is as much a delegation
+  failure as a vague brief. **briefQuality** then assesses the *loop brief* — goal + a
+  checkable "done" + tools + a guardrail — not just a prompt.
+- **Design stays longitudinal — with richer signal.** One loop is still one artifact, and
+  "have you re-architected how you *work*" is a property of practice across tasks, not of a
+  single loop. The loop's design quality is already captured by Discernment and Delegation
+  above, so **D3 is still not scored per-review** (the rule in §D3 holds). What the agentic
+  era adds is a clearer longitudinal read: across someone's loops, are they right-sizing
+  automation, and does discernment hold as they delegate more — and riskier — work to loops?
+
+This is **not a new domain.** Agentic work spans domains (a coding loop, a research loop); it
+is an *artifact type* recognized at interview time, which re-points the probes above. The
+matching coaching move in think-first mode is **mode selection** — helping the human choose
+the vehicle before crafting the brief — since a loop is worth its setup and token cost only
+when the task repeats (or has many unknown steps) *and* the AI can check "done" itself.
+
 ## Conformance
 
 An implementation is **conformant to AI-Q v0.2** if it:
