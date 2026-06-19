@@ -171,6 +171,8 @@ Bands: **80–100 Owns it · 55–79 Mostly owns it · 30–54 Riding the AI · 
 
 Scoring is deterministic — every sub-score and the composite are computed by the same code everywhere ([`@hone/sdk`](sdk/typescript/)), so a 72 in CI means the same thing as a 72 in your agent. A six-dimension review's AI-Q equals its Discernment sub-score, so every v0.1 Judgment Score is already a valid AI-Q. The full normative definition is [`spec/aiq.md`](spec/aiq.md); two extended Discernment dimensions — *Counterargument* and *Curiosity* — are optional and defined in [`spec/judgment-dimensions.md`](spec/judgment-dimensions.md).
 
+A score *of* judgment has to itself be defensible. Each dimension is scored **independently against published 1–5 anchors** (not a holistic vibe), with explicit guards against the self-preference and fluency biases an LLM judge is prone to, and the implementation **leads with the band, not a false-precision integer** — with an ensemble option for high-stakes reviews. The full rules are in [`spec/aiq.md` → Scoring rigor](spec/aiq.md#scoring-rigor-judging-defensibly).
+
 The interview methodology is built on the evidence, not vibes either: premortems (Klein), consider-the-opposite and reference-class forecasting (Tetlock/GJP), calibration against stated confidence (Kahneman–Klein), and confidence-before-reveal — because subjective confidence is not an accuracy signal.
 
 ## Why AI evaluation isn't enough
@@ -179,6 +181,8 @@ Current AI evaluation asks: *was the model correct?*
 Hone asks: *does the human understand?*
 
 As AI collapses the cost of producing work, the scarce skill becomes **recognizing** good work — knowing what to trust, what to verify, and what you're prepared to defend with your name on it. A 2025 CHI study of 319 knowledge workers (Lee et al., Carnegie Mellon & Microsoft Research) found confidence in AI associated with *less* self-reported critical thinking (β = −0.69, p < 0.001), while confidence in one's *own* ability was associated with *more* (β = +0.26). That gap — between what the work needed and what the human caught — is the **judgment gap**, and nothing in the eval stack measures it.
+
+**The un-gameable layer.** Automated metrics get gamed: in 2026, a single automated agent was shown to break every major agent benchmark via reward-hacking — near-perfect scores without solving the task. The one thing that can't be optimized away by the model is whether the *human* can stand behind the result. That's what Hone measures, and why it scores the person rather than the output.
 
 Full argument: [**The AI Judgment Gap — Why AI Evaluation Is Not Enough**](WHITEPAPER.md).
 

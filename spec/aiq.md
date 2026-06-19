@@ -171,6 +171,40 @@ matching coaching move in think-first mode is **mode selection** — helping the
 the vehicle before crafting the brief — since a loop is worth its setup and token cost only
 when the task repeats (or has many unknown steps) *and* the AI can check "done" itself.
 
+## Scoring rigor (judging defensibly)
+
+A score *of* judgment must itself be defensible, or it's just another vibe check. AI-Q is
+bring-your-own-model, so the rubric — not the model's mood — must carry the score. These
+rules make a single LLM judge as reliable as the construct allows, and are the practices
+the eval literature converges on (independent anchored grading, bias mitigation, calibration).
+
+- **Score each dimension independently against its anchors** — never a holistic gestalt.
+  The judge rates Understanding, then Verification, and so on, each against the 1–5 anchors
+  in [`judgment-dimensions.md`](judgment-dimensions.md) (and the three Delegation facets
+  against §D2). Holistic scoring is where bias and halo effects enter.
+- **Guard against the self-preference and fluency biases.** The judge is often the same
+  class of model that produced the work, and fluent, confident prose reads as competent.
+  The judge MUST score only what the *human* demonstrated in the interview — not how polished
+  the artifact is, not whether the judge would have written it the same way. Length and
+  confidence are not evidence of judgment.
+- **Lead with the band, and treat it as the unit of certainty.** A single-judge 1–5 score
+  carries roughly ±1 of inherent rater uncertainty per dimension, so the precise composite
+  is more precise than the measurement. Report and lead with the **band**
+  (Owns it / Mostly owns it / Riding the AI / Black box); the integer is secondary.
+- **Ensemble for high-stakes (recommended at `high` risk).** Run 2–3 independent judge
+  passes (ideally different models) and report the **range** of AI-Q, not a point. Inter-judge
+  disagreement is itself signal — a wide range means the read is uncertain and the human
+  should treat it as such. A conformant implementation MAY offer this; it SHOULD for
+  high-stakes reviews.
+- **Calibrate BYO judges to the anchors.** Because the rubric levels are explicit, a
+  GPT-class judge and a Claude-class judge should land in the same band for the same
+  transcript. Implementations SHOULD ship a small set of human-scored reference transcripts
+  so adopters can check their judge against the anchors (see [`roadmap.md`](roadmap.md)).
+- **Ground in objective checks where they exist.** If any claim in the work is machine-
+  checkable (a test passes, a number reconciles, a cited source exists), the implementation
+  SHOULD run that check and feed the result into Verification — so the score is partly
+  grounded in fact, not pure model opinion, and harder to game.
+
 ## Conformance
 
 An implementation is **conformant to AI-Q v0.2** if it:
@@ -179,8 +213,10 @@ An implementation is **conformant to AI-Q v0.2** if it:
 3. never reports a numeric per-review Design score,
 4. computes the composite by renormalized weights as defined here, with deterministic code
    — never model arithmetic,
-5. reports unassessed Ds explicitly as not assessed, and
-6. emits output validating against [`score.schema.json`](score.schema.json).
+5. reports unassessed Ds explicitly as not assessed,
+6. scores each dimension independently against its published anchors and leads with the band
+   (the [scoring-rigor](#scoring-rigor-judging-defensibly) rules), and
+7. emits output validating against [`score.schema.json`](score.schema.json).
 
 *The composite was called the **Judgment Score** in spec v0.1. AI-Q is the same number
 when only discernment is assessed; v0.1 scores need no migration.*

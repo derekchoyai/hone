@@ -104,9 +104,13 @@ adapt, not scripts to read:
 - **Always end with:** "Before I show you anything — honestly, how sure are you about this,
   0 to 100?"
 
-**4. Score it honestly — not on vibes, and not in your head.** Rate them 1–5 on the six
-things that make up **discernment**, by comparing what they told you against the map you
-built: do they **understand** it · did they **verify** what mattered · do they see the
+**4. Score it honestly — not on vibes, and not in your head.** Score each thing on its own,
+against what a 1 vs a 3 vs a 5 actually looks like — never one holistic gut-feel. And watch
+your own bias: you may be judging work a model like you produced, and fluent, confident prose
+*reads* as competent. Score only what **they** showed you — not how polished the work is, not
+whether you'd have written it that way. An honest "I don't know" beats a fluent dodge. Rate
+them 1–5 on the six things that make up **discernment**, by comparing what they told you
+against the map you built: do they **understand** it · did they **verify** what mattered · do they see the
 **assumptions** · can they name real **risks** · does their confidence **match** what they
 actually showed · do they **own** it (or is it "the AI did it"?). If you asked about how
 they worked the AI, also rate the three **delegation** facets 1–5: the **brief** (did it

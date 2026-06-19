@@ -261,7 +261,11 @@ const REGISTER_RULE =
   "Phrase ALL advice, checklists, and lessons in the user's context register — WORK: 'before you ship / how you'd defend it in the room'; LIFE: 'before you act on it / if someone asks why' (never 'ship' or 'stakeholders' for personal decisions); STUDENT: 'before you turn it in / if your teacher asks'; KID: 'before you share it / if a friend asks'.";
 
 const SCORING_RULES =
-  "Score each of the six Discernment dimensions 1-5 by comparing the human's answers against your private work map. If your interview surfaced the brief/iteration (the delegation probe), ALSO score the three Delegation facets 1-5 — with no such evidence, leave them out entirely (not assessed ≠ zero). Then call score_review with those numbers (and statedConfidence if captured) — NEVER compute sub-scores or the AI-Q composite yourself. After delivering the report, call record_review with the same scores (plus domain, topGap, subject) so future reviews adapt to this person — tell them you're saving scores only, never the work, and skip it if they'd rather you didn't.";
+  "Score each of the six Discernment dimensions 1-5 INDEPENDENTLY against its anchors (not one holistic impression), comparing the human's answers against your private work map. BIAS GUARD: you may be judging work produced by a model like yourself, and fluent, confident prose reads as competent — score ONLY what the HUMAN demonstrated, not how polished the artifact is; length and confident tone are not evidence of judgment, and an honest 'I don't know' beats a fluent dodge. If your interview surfaced the brief/iteration (the delegation probe), ALSO score the three Delegation facets 1-5 — with no such evidence, leave them out entirely (not assessed ≠ zero). Then call score_review with those numbers (and statedConfidence if captured) — NEVER compute sub-scores or the AI-Q composite yourself. LEAD WITH THE BAND, not the integer (a single-judge score carries ~±1 of rater noise per dimension). After delivering the report, call record_review with the same scores (plus domain, topGap, subject) so future reviews adapt to this person — tell them you're saving scores only, never the work, and skip it if they'd rather you didn't.";
+
+// Ensemble guidance — surfaced at high risk (spec/aiq.md scoring rigor).
+const ENSEMBLE_NOTE =
+  "HIGH-STAKES RIGOR: for high-risk work, treat your read as a single-judge estimate. If you can, score the dimensions a second time from scratch (or have a second model do it) and report the RANGE of AI-Q, not a point — a wide range means the read is uncertain and the human should treat it that way. Always lead with the band over the number.";
 
 const REPORT_STRUCTURE = [
   "Subject line: a ≤8-word neutral label naming WHAT this work was (e.g. 'Q3 GTM strategy deck', 'churn-prediction SQL query') — a topic anchor for recall, NOT a finding or the answer.",
@@ -356,6 +360,7 @@ server.tool(
       agenticNote: AGENTIC_NOTE,
       techniques: TECHNIQUES,
       scoring: SCORING_RULES,
+      ...(riskLevel === "high" ? { ensemble: ENSEMBLE_NOTE } : {}),
       reportStructure: REPORT_STRUCTURE,
       ...(personalization ? { personalization } : {}),
       privacy: "Judgment metadata only (scores, never the work), stored locally in ~/.hone/profile.json via record_review. The work itself never leaves the session.",

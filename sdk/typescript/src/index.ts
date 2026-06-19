@@ -285,6 +285,15 @@ ${opts.answers
   .map((a, i) => `Q${i + 1}: ${a.question}\nA${i + 1}: ${a.answer || "(no answer)"}`)
   .join("\n\n")}
 
+SCORING RIGOR (spec/aiq.md):
+- Score each dimension INDEPENDENTLY against its 1-5 anchors — not one holistic impression.
+  Rate Understanding, then Verification, and so on, each on its own merits.
+- BIAS GUARD: you may be judging work produced by a model like yourself, and fluent,
+  confident prose reads as competent. Score ONLY what the HUMAN demonstrated in their
+  answers — not how polished the artifact is, not whether you'd have written it the same way.
+  Length and confident tone are not evidence of judgment. An "I don't know" that's honest
+  beats a fluent answer that dodges.
+
 Score the HUMAN on the six Discernment dimensions, 1-5 each, by comparing what they
 demonstrated against what the work actually requires.${
     assessDelegation

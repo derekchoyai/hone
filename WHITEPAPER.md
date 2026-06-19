@@ -101,6 +101,15 @@ The score is deliberately *transparent and rubric-derived*, not a black-box "quo
 It can be read, audited, and modified per domain. (Full definitions:
 [`spec/judgment-dimensions.md`](spec/judgment-dimensions.md).)
 
+Because the score is bring-your-own-model, the rubric — not the judge's mood — has to carry
+it. Each dimension is scored independently against published anchors, with explicit guards
+against the self-preference and fluency biases an LLM judge is prone to, and the output leads
+with the band rather than a false-precision number (an ensemble of judges is recommended for
+high-stakes reviews). And it cuts the other way from the automated-metrics arms race:
+in 2026 a single agent was shown to break every major agent benchmark via reward-hacking.
+Whether a *human* can stand behind the work is the one thing that optimization can't game —
+which is exactly what this measures.
+
 ## 5. How measurement works
 
 A judgment review has three stages, all model-agnostic:
