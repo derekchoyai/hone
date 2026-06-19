@@ -88,6 +88,12 @@ Each is scored 1–5 against an auditable, domain-specific rubric.
 6. **Accountability** — can they own and defend the decision rather than deferring to
    the tool?
 
+When the artifact is itself a *system the human built to run AI* — an agent loop, an
+automation, a multi-agent setup — these same dimensions re-point to the loop rather than a
+finished output: *verification* becomes whether the "done" check would catch confident-but-wrong
+work, *risk* becomes whether the blast radius is bounded, and *delegation* becomes whether a
+loop was even the right vehicle versus a one-shot prompt. No new dimension is needed.
+
 Two extended dimensions — **counterargument** (can they steelman the opposing case?) and
 **curiosity** (did they explore alternatives?) — are optional and defined in the spec.
 

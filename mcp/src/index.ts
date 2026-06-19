@@ -279,14 +279,19 @@ const REPORT_STRUCTURE = [
 const THINKFIRST_RULES = [
   "The user has NOT produced anything yet — there is no Discernment to score; do NOT grade or quiz for right answers. This session is DELEGATION (D2) coaching: the brief is the work.",
   "Assess risk & ambiguity (low = casual/throwaway; medium = real work that will be shared; high = client-facing, money, legal/medical, irreversible).",
+  "PICK THE VEHICLE FIRST — this is a bigger judgment than the wording. Help them choose HOW to hand this to AI, scaled to stakes, repetition, self-checkability, time, and cost: ONE PROMPT (a one-off they can eyeball — most everyday asks; don't over-build); an AGENT LOOP (only if the task repeats or has many unknown steps AND the AI can check 'done' itself — run tests, count words); SEVERAL AGENTS (only when one genuinely can't keep up — rare); or DO IT THEMSELVES (if the AI can't tell when it's done and stakes are real). Name the tradeoff: pushing a one-off into an elaborate loop wastes time and tokens — resisting that over-automation is itself good judgment. For anything irreversible, keep a human gate ('pause and ask me before it deletes/sends/pays').",
   "Socratic refinement: ask 0-4 questions (0 if already clear and low-stakes; otherwise 2-4), each a real decision only the user can make (true intent, audience, what 'good' output looks like, key constraints, what to avoid). Ask what a thoughtful collaborator would ask to get them a better result — no right answers, no quizzing. Each question must reference THEIR task specifically, never a template. Productive struggle is the point. Honor the context question cap (kid = 3) and register.",
-  "Then deliver a SHARPENED PROMPT — ready to paste, written AS the prompt (imperative), folding in their answers, with the context/constraints/format/success criteria a strong prompt needs; briefly note what you added and why (so they learn what a strong prompt contains).",
+  "Then deliver the artifact SHAPED TO THE VEHICLE they chose: for one prompt, a SHARPENED PROMPT (ready to paste, written AS the prompt); for a loop, a SHARPENED LOOP BRIEF instead — goal + a CHECKABLE 'done' + how it verifies + a guardrail (max tries / budget) so it can't run forever. Either way write it as the thing (not advice about it), folding in their answers, with the context/constraints/success criteria a strong one needs; briefly note what you added and why.",
   "And a JUDGMENT PRIMER — what to scrutinize WHEN THE ANSWER RETURNS, scaled to risk (low → 2-3 light checks; medium → 3-5; high → 5-7 sharp ones): likely AI assumptions, probable failure modes, how to tell good from merely-plausible. Domain-specific (coding → correctness/edge cases/security/'can you explain it'; research → sources real vs fabricated, causation vs correlation, generalization; strategy → load-bearing assumption, second-order effects, alternatives incl. do-nothing; writing → central claim, evidence vs assertion, unverified facts; creative → matches intent/brand, generic vs distinctive, can you judge it).",
   "OPTIONAL delegation read: if the user wants a number, you MAY score the three Delegation facets 1-5 on their brief AS FIRST GIVEN (their unaided delegation, before your coaching) via score_review, and save it with record_review (delegation facets only, no six dimensions). Label it a delegation-only read — never a full AI-Q. Offer, don't impose.",
 ];
 
 const CREATIVE_NOTE =
   "If the work is a design brief, a generative-AI prompt (images/video/slides/copy), or marketing creative, treat it as creative DIRECTION, not an argument — do not quiz design theory. Reinterpret the buckets: claims = what it's trying to achieve; assumptions = what's trusted to the AI or audience; risks = ways the output disappoints (generic, off-brand, inaccessible); unknowns = open creative choices. Interview accordingly — ask instead about: what they actually want and for whom; how they'll judge whether the output is good; what they're delegating to the AI; what would make them reject the first result; where it could come back generic or off-brand.";
+
+// Agentic artifact type (spec/aiq.md §"AI-Q for agentic work"): judge the LOOP, not the output.
+const AGENTIC_NOTE =
+  "If the work is a SYSTEM the human built to run AI — an agent loop, an automation, a multi-agent setup, a scheduled job — judge the loop, not just its output (they rarely saw every intermediate step; the loop checked itself). The three Ds re-point, no new dimension: VERIFICATION becomes verification DESIGN — would their 'done' check actually catch confident-but-wrong work, or rubber-stamp 'looks done'? RISK becomes blast-radius control — explicit stop conditions (max iterations, a budget), guardrails, and a human gate on irreversible / one-way-door steps. DELEGATION (if assessed) becomes mode-fit — was a loop even the right call vs. a one-shot prompt, or did they over-automate? Probe: 'how does it know when it's done, and would that check catch a wrong-but-polished result?'; 'what stops it — and what's the blast radius if it runs wrong, unattended, a hundred times?'; 'was a loop the right call here, or would one prompt have done it cheaper?'. A loop ships confident, polished, wrong work and calls it done if the check is weak — that is the judgment gap, one level up.";
 
 const VALID_DOMAINS = ["coding", "writing", "research", "product", "strategy", "creative", "other"] as const;
 
@@ -324,6 +329,7 @@ server.tool(
         rules: THINKFIRST_RULES,
         delegationDimensions: DELEGATION_DIMS,
         creativeNote: CREATIVE_NOTE,
+        agenticNote: AGENTIC_NOTE,
         ...(personalization ? { personalization } : {}),
         privacy: "Judgment metadata only, stored locally on this machine. The task and prompt never leave the session.",
       };
@@ -347,6 +353,7 @@ server.tool(
       register: REGISTER_RULE,
       systemScaleGuidance: SYSTEM_ALTITUDE,
       creativeNote: CREATIVE_NOTE,
+      agenticNote: AGENTIC_NOTE,
       techniques: TECHNIQUES,
       scoring: SCORING_RULES,
       reportStructure: REPORT_STRUCTURE,

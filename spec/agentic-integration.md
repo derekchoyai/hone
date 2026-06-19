@@ -1,7 +1,14 @@
 # Hone in the agentic era — skills, MCP, and benchmarks
 
-*Spec v0.1 (design). How judgment review works when AI outputs are whole systems — repos,
+*Spec v0.2 (design). How judgment review works when AI outputs are whole systems — repos,
 multi-file documents, running apps — not paragraphs.*
+
+> This doc is about the **integration surfaces** (skill, MCP, benchmarks). How AI-Q itself
+> applies to agentic work — agent loops, automations, multi-agent — is defined in
+> [`aiq.md` §"AI-Q for agentic work"](aiq.md#ai-q-for-agentic-work-loops-automations-multi-agent):
+> the three Ds re-point to the loop (Verification → verification design; Risk → blast-radius
+> control; Delegation → mode selection), with **no new dimension**, and the matching
+> think-first move is **mode selection** (prompt vs. loop vs. multi-agent vs. do-it-yourself).
 
 ---
 
