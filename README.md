@@ -74,8 +74,11 @@ No grades for the work. No "AI detector." A measure of *your grip on it* — and
 
 When an agent built the thing — a repo, an analysis, a doc set — don't paste it anywhere. Hone runs **inside** the agent, which already has the work loaded:
 
+**Claude Desktop — one click:** download `hone.mcpb` from the [latest release](https://github.com/derekchoyai/hone/releases/latest) and open it (Settings → Extensions). No config files, no terminal.
+
+**Claude Code — add the MCP server** (protocol + deterministic scoring):
+
 ```bash
-# Claude Code — add the MCP server (protocol + deterministic scoring):
 git clone https://github.com/derekchoyai/hone && cd hone/mcp && npm install && npm run build
 claude mcp add hone -- node "$(pwd)/dist/index.js"
 ```

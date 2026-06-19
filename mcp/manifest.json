@@ -1,0 +1,48 @@
+{
+  "manifest_version": "0.2",
+  "name": "hone",
+  "display_name": "Hone — measure your AI-Q",
+  "version": "0.3.0",
+  "description": "Score your judgment over AI-assisted work. Every AI eval scores the model; Hone scores you.",
+  "long_description": "Hone runs the open AI-Q protocol inside your agent: it interviews you about a piece of AI-assisted work, commits your confidence before the reveal, and scores your judgment across the three Ds — Discernment, Delegation, Design — deterministically. Judgment metadata (scores, never your work) stays in a local file on your machine; nothing leaves the session. The host model you already use does the reading and the interview; this server supplies the methodology and the deterministic scoring.",
+  "author": {
+    "name": "Derek Choy",
+    "url": "https://github.com/derekchoyai"
+  },
+  "homepage": "https://github.com/derekchoyai/hone",
+  "documentation": "https://github.com/derekchoyai/hone/blob/main/mcp/README.md",
+  "support": "https://github.com/derekchoyai/hone/issues",
+  "license": "Apache-2.0",
+  "keywords": ["ai-q", "judgment", "ai-evaluation", "human-in-the-loop", "claude", "mcp"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "HONE_HOME": "${user_config.profile_dir}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "get_protocol", "description": "The AI-Q review methodology for the host model to run (rubric, interview, scoring rigor)." },
+    { "name": "score_review", "description": "Deterministically score a completed interview into an AI-Q (sub-scores + band)." },
+    { "name": "record_review", "description": "Save judgment metadata only — scores, never the work — to the local profile." },
+    { "name": "get_profile", "description": "The longitudinal local AI-Q profile: averages, weakest dimension, trends." }
+  ],
+  "user_config": {
+    "profile_dir": {
+      "type": "directory",
+      "title": "Profile location",
+      "description": "Where your local AI-Q profile (scores only, never your work) is stored. Defaults to ~/.hone.",
+      "required": false,
+      "default": "${HOME}/.hone"
+    }
+  },
+  "compatibility": {
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

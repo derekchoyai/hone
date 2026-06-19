@@ -28,15 +28,15 @@ Set `HONE_HOME` to relocate the profile directory (defaults to `~/.hone`).
 
 ## Setup
 
-Build once:
+**Claude Desktop — one click:** grab `hone.mcpb` from the
+[latest release](https://github.com/derekchoyai/hone/releases/latest) and open it
+(Settings → Extensions). No config files, no terminal. (Discoverable in the
+[MCP Registry](https://registry.modelcontextprotocol.io) as `io.github.derekchoyai/hone`.)
+
+**Claude Code — from source:**
 
 ```bash
 cd mcp && npm install && npm run build
-```
-
-**Claude Code:**
-
-```bash
 claude mcp add hone -- node /absolute/path/to/hone/mcp/dist/index.js
 ```
 

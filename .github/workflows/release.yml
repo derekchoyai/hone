@@ -1,0 +1,41 @@
+name: Release
+
+# On a version tag (e.g. v0.3.0): build the one-click .mcpb desktop bundle, attach it to a
+# GitHub Release, then publish/update the entry in the official MCP Registry.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write # create the GitHub Release
+  id-token: write # GitHub OIDC — lets mcp-publisher prove the io.github.derekchoyai namespace
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build + pack the .mcpb bundle
+        working-directory: mcp
+        run: ./pack-mcpb.sh
+
+      - name: Attach hone.mcpb to the GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mcp/hone.mcpb
+          generate_release_notes: true
+
+      # Publishes mcp/server.json to registry.modelcontextprotocol.io. Auth is via GitHub OIDC
+      # (no token needed) because the server name is namespaced io.github.derekchoyai/*.
+      # First run requires the namespace to be claimable by this repo's owner — see mcp/README.
+      - name: Publish to the MCP Registry
+        working-directory: mcp
+        continue-on-error: true # don't fail the release if the registry step needs setup
+        run: |
+          curl -sSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.derekchoyai/hone",
+  "description": "Score your judgment over AI-assisted work — the open AI-Q. Every AI eval scores the model; Hone scores you.",
+  "version": "0.3.0",
+  "repository": {
+    "url": "https://github.com/derekchoyai/hone",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/derekchoyai/hone",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/derekchoyai/hone/releases/download/v0.3.0/hone.mcpb",
+      "version": "0.3.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
