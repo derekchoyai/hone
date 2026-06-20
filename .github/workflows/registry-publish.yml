@@ -1,0 +1,23 @@
+name: Registry publish
+
+# Publish/update mcp/server.json in the official MCP Registry, on demand.
+# Use this after a metadata-only change (description, etc.) when the .mcpb release asset
+# that server.json points to already exists — so no new release/tag is needed.
+# (The Release workflow also publishes on a version tag; this is the lightweight re-publish.)
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write # GitHub OIDC — proves the io.github.derekchoyai/* namespace, no token
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish server.json to the MCP Registry
+        working-directory: mcp
+        run: |
+          curl -sSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish

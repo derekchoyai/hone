@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.derekchoyai/hone",
-  "description": "Score your judgment over AI-assisted work — the open AI-Q. Every AI eval scores the model; Hone scores you.",
+  "description": "Score your judgment over AI-assisted work. Hone scores you, not the model.",
   "version": "0.3.0",
   "repository": {
     "url": "https://github.com/derekchoyai/hone",
