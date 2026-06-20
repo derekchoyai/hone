@@ -13,6 +13,7 @@
       "registryType": "mcpb",
       "identifier": "https://github.com/derekchoyai/hone/releases/download/v0.3.0/hone.mcpb",
       "version": "0.3.0",
+      "fileSha256": "8a0380daf3fc074e0cffbc854c6696eea0ad4aa4a918efe53ac8f19ca72e1de9",
       "transport": {
         "type": "stdio"
       }

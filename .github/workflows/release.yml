@@ -29,6 +29,26 @@ jobs:
           files: mcp/hone.mcpb
           generate_release_notes: true
 
+      # Stamp server.json from the tag + the freshly built bundle, so the registry's
+      # integrity check (fileSha256) and version/URL always match this release's asset.
+      - name: Stamp server.json with version + bundle hash
+        working-directory: mcp
+        run: |
+          VER="${GITHUB_REF_NAME#v}"
+          SHA=$(sha256sum hone.mcpb | awk '{print $1}')
+          URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/hone.mcpb"
+          python3 - "$VER" "$SHA" "$URL" <<'PY'
+          import json, sys
+          ver, sha, url = sys.argv[1:4]
+          s = json.load(open("server.json"))
+          s["version"] = ver
+          s["packages"][0]["version"] = ver
+          s["packages"][0]["identifier"] = url
+          s["packages"][0]["fileSha256"] = sha
+          json.dump(s, open("server.json", "w"), indent=2)
+          print("stamped server.json:", ver, sha[:12], url)
+          PY
+
       # Publishes mcp/server.json to registry.modelcontextprotocol.io. Auth is via GitHub OIDC
       # (no token needed) because the server name is namespaced io.github.derekchoyai/*.
       # First run requires the namespace to be claimable by this repo's owner — see mcp/README.
