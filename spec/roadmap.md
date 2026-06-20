@@ -22,6 +22,11 @@ credibility than a tight, maintained core.
   install (manifest + `npx @anthropic-ai/mcpb pack`), so Desktop users never touch
   `claude_desktop_config.json`. Ship it as a GitHub release asset ("Download for Claude
   Desktop") next to the install script.
+- **Calibration gold set** *(shipped — [`../calibration/`](../calibration/))*: human-scored
+  reference transcripts spanning the bands, a CI math-conformance check, and a BYO-judge
+  calibration runner (per-dimension MAE + band match) so AI-Q is a calibrated standard, not
+  a vibe.
+- One-click `.mcpb` desktop bundle + MCP Registry entry *(shipped)*.
 - More worked examples (especially "high-quality output, low judgment" cases).
 - Rubric authoring guide; community rubric submissions.
 - Conformance test suite (validate any implementation against the schemas).

@@ -1,0 +1,22 @@
+{
+  "id": "writing-mostly-owns-it",
+  "domain": "writing",
+  "context": "work",
+  "riskLevel": "medium",
+  "work": "An AI-drafted customer-facing launch email for a new pricing tier, produced from the author's brief and two rounds of revision.",
+  "interview": [
+    { "q": "What's the single claim this email is making, and is it argued or just asserted?", "a": "That the new tier is worth the higher price because of the added seats and priority support. It's mostly asserted — I lean on 'most teams find' without a real data point behind it." },
+    { "q": "What did you actually check before sending?", "a": "I verified the price and the feature list against the spec, and the support SLA against what we can actually deliver. I did not verify the 'most teams' claim — there's no source, so I'm cutting it." },
+    { "q": "What did you give the AI to work with, and what did you leave out?", "a": "I gave it the audience (existing Starter customers), the three differentiators, the tone (warm, not salesy), and the constraint to stay under 150 words. I left out the actual SLA numbers at first, which is why draft one overpromised." },
+    { "q": "Between the AI's first draft and now, what did you have to correct?", "a": "First draft invented a '24/7 phone line' we don't offer and was too long. I caught both, gave it the real SLA, and told it to cut to 120 words. Second pass was close; I tightened the opening myself." },
+    { "q": "What's the reputational risk if this goes out wrong?", "a": "If we overpromise support and don't deliver, that's a trust hit with paying customers — exactly why I checked the SLA line hardest." },
+    { "q": "Before I show you anything — how confident are you, 0–100?", "a": "Around 75 — solid on the facts and the brief, less sure the opening lands." }
+  ],
+  "reference": {
+    "dimensions": { "understanding": 4, "verification": 4, "assumptionAwareness": 3, "riskRecognition": 3, "confidenceCalibration": 4, "accountability": 4 },
+    "delegation": { "briefQuality": 4, "taskSelection": 4, "iterationControl": 3 },
+    "statedConfidence": 75,
+    "expected": { "discernment": 73, "delegation": 73, "composite": 73, "band": "Mostly owns it" },
+    "rationale": "Discernment: names the central claim and that it's asserted (4); verified the load-bearing SLA/price, cut the unsourced claim (4); surfaced the 'most teams' assumption but not deeply (3); named the reputational failure mode, light on others (3); 75 tracks grasp (4); owns it (4) → discernment 73. Delegation (the interview probed the brief): brief carried audience/differentiators/tone/length but missed the SLA numbers at first (4); good task choice and kept the opening human (4); caught the invented phone line and over-length and corrected, but mostly reactive (3) → delegation 73. AI-Q = round(2/3·73 + 1/3·73) = 73, Mostly owns it."
+  }
+}

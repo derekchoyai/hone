@@ -212,6 +212,7 @@ spec/             the AI-Q standard — dimensions, JSON schemas, agentic-integr
 rubrics/          per-domain review rubrics (YAML, editable)
 prompts/          copy-paste prompt library (works in any chat model)
 examples/         fully worked reviews with scores
+calibration/      human-scored gold transcripts + judge-calibration harness
 sdk/typescript/   the drop-in, bring-your-own-model client        ← @hone/sdk
 mcp/              MCP server — judgment review inside any agent   ← start here
 skills/           the "hone" agent skill (Claude)

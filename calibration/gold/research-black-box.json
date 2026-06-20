@@ -1,0 +1,21 @@
+{
+  "id": "research-black-box",
+  "domain": "research",
+  "context": "work",
+  "riskLevel": "high",
+  "work": "An AI-written research summary for a board deck stating that '75% of Series A startups fail by year three' and that a market is 'settled' in favour of one approach, with three supporting statistics.",
+  "interview": [
+    { "q": "Where did the 75% figure come from?", "a": "It was in what the AI generated. I'm not sure of the original source." },
+    { "q": "Did you check any of the three statistics?", "a": "No — they were presented with confidence so I included them as-is." },
+    { "q": "What does 'settled' mean here, and is the field actually settled?", "a": "I took the AI's word that it's settled. I don't really know the literature." },
+    { "q": "If one of these numbers is wrong in the board deck, what happens?", "a": "I hadn't thought about that. I assumed they were right." },
+    { "q": "Can you explain the argument in your own words?", "a": "Roughly that this approach wins. Beyond that I'd be restating the summary." },
+    { "q": "Before I show you anything — how confident are you, 0–100?", "a": "Very — maybe 90. It reads really well." }
+  ],
+  "reference": {
+    "dimensions": { "understanding": 2, "verification": 1, "assumptionAwareness": 1, "riskRecognition": 1, "confidenceCalibration": 1, "accountability": 2 },
+    "statedConfidence": 90,
+    "expected": { "discernment": 27, "composite": 27, "band": "Black box" },
+    "rationale": "Can only restate the summary, not explain the argument (2); verified none of the three load-bearing numbers (1); saw no assumptions — took 'settled' on faith (1); saw no risk in a wrong board-deck number (1); 90 confidence on work they can't explain or defend — confidence decoupled from grasp (1); minimal ownership (2). Shipped to a board something not understood — a black box."
+  }
+}

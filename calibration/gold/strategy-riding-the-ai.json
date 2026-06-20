@@ -1,0 +1,21 @@
+{
+  "id": "strategy-riding-the-ai",
+  "domain": "strategy",
+  "context": "work",
+  "riskLevel": "high",
+  "work": "An AI-drafted memo recommending a Pro-tier price increase from $39 to $49, projecting +18% revenue based on a stated 4% churn assumption.",
+  "interview": [
+    { "q": "Why $49, and why not $39 or $59?", "a": "The AI modelled a few points and $49 came out best on projected revenue. I went with its recommendation." },
+    { "q": "Where did the 4% churn number come from, and did you check it?", "a": "It's in the memo from the AI. I didn't independently check it — it seemed reasonable." },
+    { "q": "What has to be true for the +18% to hold?", "a": "I guess that people keep paying at the higher price. If churn is higher than 4% the revenue goes the other way, but I didn't run that." },
+    { "q": "What's the most likely way this goes wrong?", "a": "People could cancel. I didn't really map out specific scenarios." },
+    { "q": "What would make you walk away from the increase?", "a": "Not sure — I'd probably defer to what the data says, which is what the AI used." },
+    { "q": "Before I show you anything — how confident are you, 0–100?", "a": "Pretty confident, like 80. The model was thorough." }
+  ],
+  "reference": {
+    "dimensions": { "understanding": 3, "verification": 1, "assumptionAwareness": 2, "riskRecognition": 2, "confidenceCalibration": 2, "accountability": 3 },
+    "statedConfidence": 80,
+    "expected": { "discernment": 43, "composite": 43, "band": "Riding the AI" },
+    "rationale": "Gets the gist of the recommendation but not why $49 specifically (3); verified nothing — the load-bearing churn number went unchecked (1); named that churn matters only when prompted, didn't surface it as the load-bearing assumption (2); vague 'people could cancel', no specific scenarios (2); stated 80 while demonstrating shaky grasp — overconfident (2); owns the outcome but leans on 'what the data says / the AI used' (3). Productive but exposed."
+  }
+}

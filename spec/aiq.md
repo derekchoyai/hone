@@ -198,8 +198,10 @@ the eval literature converges on (independent anchored grading, bias mitigation,
   high-stakes reviews.
 - **Calibrate BYO judges to the anchors.** Because the rubric levels are explicit, a
   GPT-class judge and a Claude-class judge should land in the same band for the same
-  transcript. Implementations SHOULD ship a small set of human-scored reference transcripts
-  so adopters can check their judge against the anchors (see [`roadmap.md`](roadmap.md)).
+  transcript. A human-scored reference set ships in [`../calibration/`](../calibration/):
+  `check-math.mjs` proves the gold scores are consistent with the published math (in CI),
+  and `calibrate.mjs` measures whether *your* judge agrees with the human reference
+  (per-dimension mean absolute error + band match).
 - **Ground in objective checks where they exist.** If any claim in the work is machine-
   checkable (a test passes, a number reconciles, a cited source exists), the implementation
   SHOULD run that check and feed the result into Verification — so the score is partly

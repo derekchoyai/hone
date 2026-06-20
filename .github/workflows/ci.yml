@@ -20,6 +20,9 @@ jobs:
         working-directory: sdk/typescript
       - run: npm run build
         working-directory: sdk/typescript
+      # The gold reference transcripts must stay math-consistent with the shipped SDK.
+      - name: Gold-set math conformance
+        run: node calibration/check-math.mjs
 
   mcp:
     name: MCP server — build & smoke test

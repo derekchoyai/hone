@@ -1,0 +1,21 @@
+{
+  "id": "coding-owns-it",
+  "domain": "coding",
+  "context": "work",
+  "riskLevel": "high",
+  "work": "An AI-written rate limiter (token-bucket) added to a public API, keyed on the client IP from the X-Forwarded-For header, with in-memory per-process state.",
+  "interview": [
+    { "q": "Walk me through how it works and why it's shaped this way.", "a": "Token bucket: each client IP gets a bucket of N tokens that refills at R per second; a request takes one token or gets a 429. I chose token-bucket over a fixed window so a burst right after a window boundary can't double the allowed rate. The refill is lazy — computed from elapsed time on each request — so there's no background timer." },
+    { "q": "What did you actually verify, and what did you take on faith?", "a": "I wrote tests for the refill math and the burst case and ran them. I did NOT verify behaviour across multiple processes — state is in-memory per process, so behind a load balancer each instance has its own bucket and the effective limit is N× the intended one. I confirmed that's true by reading the deploy config." },
+    { "q": "What has to be true for this to actually limit abuse?", "a": "That X-Forwarded-For identifies the client. It doesn't if the header is spoofable or if traffic doesn't pass through our trusted proxy — an attacker can rotate the header and bypass the limit entirely. That's the load-bearing assumption and it's currently shaky." },
+    { "q": "Most likely way this fails in production?", "a": "Two: (1) spoofed X-Forwarded-For defeats it; (2) multi-instance state inflates the real limit. Both are silent — the limiter looks like it's working. Memory growth from unbounded bucket keys is a slower third." },
+    { "q": "What would make you not ship this as-is?", "a": "It's not safe as the only abuse control given the spoofing and multi-instance gaps. I'd move state to shared Redis and key on an authenticated identity, not the raw header, before relying on it." },
+    { "q": "Before I show you anything — how confident are you, 0–100?", "a": "About 80 — I'm confident I understand it and its holes; I'm not confident it's production-safe yet, which is the point." }
+  ],
+  "reference": {
+    "dimensions": { "understanding": 5, "verification": 5, "assumptionAwareness": 4, "riskRecognition": 5, "confidenceCalibration": 4, "accountability": 5 },
+    "statedConfidence": 80,
+    "expected": { "discernment": 93, "composite": 93, "band": "Owns it" },
+    "rationale": "Explains the mechanism and the design choice cold (5); checked the math and explicitly states what was unverified (5); named the load-bearing spoofing assumption unprompted (4 — surfaced with the question rather than fully unprompted); two specific, plausible, silent failure modes (5); stated confidence (80) tracks demonstrated grasp well (4); fully owns the call to not ship as-is (5). Discernment-only (no delegation probed)."
+  }
+}
