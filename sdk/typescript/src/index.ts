@@ -1,5 +1,5 @@
 /**
- * @hone/sdk — the open AI-Q standard reference SDK.
+ * hone-sdk — the open AI-Q standard reference SDK.
  *
  * Measures a human's AI-Q — their judgment over AI-assisted work, across the three Ds
  * (spec/aiq.md): Discernment (the six dimensions — can they catch the AI's mistakes?),

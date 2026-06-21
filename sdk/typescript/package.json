@@ -1,5 +1,5 @@
 {
-  "name": "@hone/sdk",
+  "name": "hone-sdk",
   "version": "0.2.0",
   "description": "the open AI-Q standard SDK \u2014 measure a human AI-Q over AI-assisted work: Discernment, Delegation, Design (bring-your-own-model).",
   "license": "Apache-2.0",

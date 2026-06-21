@@ -3,7 +3,7 @@
  * Math-conformance check for the gold reference transcripts.
  *
  * For every gold file, recompute the sub-scores and AI-Q composite/band from its reference
- * dimension (and delegation) scores using @hone/sdk — the SAME code the SDK, MCP, CLI, and
+ * dimension (and delegation) scores using hone-sdk — the SAME code the SDK, MCP, CLI, and
  * app use — and assert they match the file's stated `expected`. This guards against the gold
  * set silently drifting from the published scoring math. Deterministic; no model required.
  *
@@ -55,7 +55,7 @@ for (const f of files) {
 }
 
 if (failures) {
-  console.error(`\n${failures} gold file(s) inconsistent with @hone/sdk math.`);
+  console.error(`\n${failures} gold file(s) inconsistent with hone-sdk math.`);
   process.exit(1);
 }
-console.log(`\nAll ${files.length} gold transcripts are math-consistent with @hone/sdk.`);
+console.log(`\nAll ${files.length} gold transcripts are math-consistent with hone-sdk.`);

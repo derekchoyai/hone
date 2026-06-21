@@ -7,7 +7,7 @@ assignees: ""
 ---
 
 **Which surface?**
-SDK (`@hone/sdk`) · MCP server · CLI · GitHub Action · prompts · skill
+SDK (`hone-sdk`) · MCP server · CLI · GitHub Action · prompts · skill
 
 **What happened?**
 

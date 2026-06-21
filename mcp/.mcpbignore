@@ -6,10 +6,10 @@ package-lock.json
 install-claude-desktop.sh
 .mcpbignore
 *.mcpb
-# the bundled @hone/sdk only needs dist/ + package.json, not its own dev deps
-node_modules/@hone/sdk/node_modules/
-node_modules/@hone/sdk/src/
-node_modules/@hone/sdk/tsconfig.json
+# the bundled hone-sdk only needs dist/ + package.json, not its own dev deps
+node_modules/hone-sdk/node_modules/
+node_modules/hone-sdk/src/
+node_modules/hone-sdk/tsconfig.json
 node_modules/.bin/
 node_modules/**/*.md
 node_modules/**/*.map

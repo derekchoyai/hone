@@ -23,7 +23,7 @@ Each file's `reference.rationale` explains *why* each score, anchored to
 
 **1. Math conformance** — `node check-math.mjs` (needs the SDK built: `npm --prefix
 ../sdk/typescript run build`). Recomputes every gold transcript's sub-scores and AI-Q from
-its reference dimensions using `@hone/sdk` — the same code the SDK, MCP, CLI, and app use —
+its reference dimensions using `hone-sdk` — the same code the SDK, MCP, CLI, and app use —
 and asserts they match the stated `expected`. This guards the gold set (and the published
 math) against silent drift. It runs in CI.
 

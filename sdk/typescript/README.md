@@ -1,4 +1,4 @@
-# @hone/sdk
+# hone-sdk
 
 The open-source reference SDK for **AI-Q** — measure whether a **human** understands
 AI-assisted work, not whether the model's output was good.
@@ -7,13 +7,13 @@ AI-assisted work, not whether the model's output was good.
 never sees your API keys and has zero runtime dependencies.
 
 ```bash
-npm install @hone/sdk
+npm install hone-sdk
 ```
 
 ## Two calls
 
 ```ts
-import { analyzeWork, reviewJudgment, type ModelFn } from "@hone/sdk";
+import { analyzeWork, reviewJudgment, type ModelFn } from "hone-sdk";
 
 // 1) Adapt your LLM once. (Examples for OpenAI/Anthropic below.)
 const model: ModelFn = async ({ system, user }) => callYourLLM(system, user);

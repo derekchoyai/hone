@@ -1,4 +1,4 @@
-# @hone/mcp — the open AI-Q standard MCP server
+# hone-mcp — the open AI-Q standard MCP server
 
 Judgment review for the agentic era, as an MCP server. Your agent (Claude Code, Cowork,
 Cursor, anything MCP-capable) already has the work loaded — a repo, a diff, a document set.
@@ -71,6 +71,6 @@ Ask *"how is my judgment developing?"* and the agent answers from `get_profile`.
 - **Thin by design** — methodology in, judgment metadata out. The host is the ingestion and
   reasoning engine; no RAG, no network, and the only file it touches is its own profile.
 - **The profile is yours**: one readable JSON file, scores only, delete to reset.
-- Scoring math comes from [`@hone/sdk`](../sdk/typescript) — the same code the SDK, CLI, and
+- Scoring math comes from [`hone-sdk`](../sdk/typescript) — the same code the SDK, CLI, and
   hosted product use.
 - Spec: [`spec/agentic-integration.md`](../spec/agentic-integration.md). License: Apache-2.0.

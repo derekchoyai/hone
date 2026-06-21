@@ -5,7 +5,7 @@
  * rather than a vibe: a GPT-class judge and a Claude-class judge should land in the same
  * band as the human reference for the same transcript.
  *
- * It feeds each gold transcript's work + interview answers to @hone/sdk's reviewJudgment()
+ * It feeds each gold transcript's work + interview answers to hone-sdk's reviewJudgment()
  * using a model you wire up, then reports per-dimension mean absolute error and band-match
  * rate vs. the human reference.
  *

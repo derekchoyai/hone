@@ -24,7 +24,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { compositeFrom, delegationFrom, aiqFrom, bandFor, RUBRIC_FOCUS, type Domain, type DelegationFacets } from "@hone/sdk";
+import { compositeFrom, delegationFrom, aiqFrom, bandFor, RUBRIC_FOCUS, type Domain, type DelegationFacets } from "hone-sdk";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";

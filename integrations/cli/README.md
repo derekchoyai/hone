@@ -34,5 +34,5 @@ Env `JUDGMENT_MODEL` overrides the model id (e.g. `gpt-4o`, `claude-sonnet-4-6`)
 The `--min` flag is what makes this scriptable into a pre-commit hook or pipeline: a
 review below threshold fails the command.
 
-> Packaging this as a published `npx @hone/cli` binary (no build step, depends on the
-> released `@hone/sdk`) is a v0.2 task — see [the roadmap](../../spec/roadmap.md).
+> Packaging this as a published `npx hone-cli` binary (no build step, depends on the
+> released `hone-sdk`) is a v0.2 task — see [the roadmap](../../spec/roadmap.md).

@@ -107,12 +107,11 @@ On a PR touching AI-generated code, the author answers a few questions and the w
 ### Build it into your own app (TypeScript SDK)
 
 ```bash
-npm install @hone/sdk          # publishing to npm in v0.2 — until then, install from source:
-# git clone https://github.com/derekchoyai/hone && npm --prefix hone/sdk/typescript install && npm --prefix hone/sdk/typescript run build
+npm install hone-sdk
 ```
 
 ```ts
-import { analyzeWork, reviewJudgment, type ModelFn } from "@hone/sdk";
+import { analyzeWork, reviewJudgment, type ModelFn } from "hone-sdk";
 
 // Bring your own model — Hone never sees your API keys.
 const model: ModelFn = async ({ system, user }) => callYourLLM(system, user);
@@ -172,7 +171,7 @@ Are you re-architecting how you work around AI — or just using it where it lan
 
 Bands: **80–100 Owns it · 55–79 Mostly owns it · 30–54 Riding the AI · 0–29 Black box.**
 
-Scoring is deterministic — every sub-score and the composite are computed by the same code everywhere ([`@hone/sdk`](sdk/typescript/)), so a 72 in CI means the same thing as a 72 in your agent. A six-dimension review's AI-Q equals its Discernment sub-score, so every v0.1 Judgment Score is already a valid AI-Q. The full normative definition is [`spec/aiq.md`](spec/aiq.md); two extended Discernment dimensions — *Counterargument* and *Curiosity* — are optional and defined in [`spec/judgment-dimensions.md`](spec/judgment-dimensions.md).
+Scoring is deterministic — every sub-score and the composite are computed by the same code everywhere ([`hone-sdk`](sdk/typescript/)), so a 72 in CI means the same thing as a 72 in your agent. A six-dimension review's AI-Q equals its Discernment sub-score, so every v0.1 Judgment Score is already a valid AI-Q. The full normative definition is [`spec/aiq.md`](spec/aiq.md); two extended Discernment dimensions — *Counterargument* and *Curiosity* — are optional and defined in [`spec/judgment-dimensions.md`](spec/judgment-dimensions.md).
 
 A score *of* judgment has to itself be defensible. Each dimension is scored **independently against published 1–5 anchors** (not a holistic vibe), with explicit guards against the self-preference and fluency biases an LLM judge is prone to, and the implementation **leads with the band, not a false-precision integer** — with an ensemble option for high-stakes reviews. The full rules are in [`spec/aiq.md` → Scoring rigor](spec/aiq.md#scoring-rigor-judging-defensibly).
 
@@ -213,7 +212,7 @@ rubrics/          per-domain review rubrics (YAML, editable)
 prompts/          copy-paste prompt library (works in any chat model)
 examples/         fully worked reviews with scores
 calibration/      human-scored gold transcripts + judge-calibration harness
-sdk/typescript/   the drop-in, bring-your-own-model client        ← @hone/sdk
+sdk/typescript/   the drop-in, bring-your-own-model client        ← hone-sdk
 mcp/              MCP server — judgment review inside any agent   ← start here
 skills/           the "hone" agent skill (Claude)
 integrations/     github-action + cli
